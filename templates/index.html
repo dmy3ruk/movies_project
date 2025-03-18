@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href={% static 'css/style.css' %}?{% now "U" %}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
+    rel="stylesheet">
+    <title>Movies</title>
+</head>
+<body>
+    <!-- HEADER-->
+<div>
+    <header class="header">
+    <span class="logo">Movies</span> 
+    <span class="nav">Головна</span>
+    <span class="nav">Фільми
+        <img src={% static "icon/Arrow.svg" %} class="arrow"/>
+    </span>
+    <span class="nav">Серіали
+         <img src={% static "icon/Arrow.svg" %} class="arrow"/>
+    </span>
+    <span class="nav">Новинки</span>
+    <span class="nav">Топ-10</span>
+    <button class="button">
+        <span class="button_text">Пошук </span> 
+    </button>
+    </header>
+</div>
+
+    <!-- POSTER GROUP -->
+<div>
+    <img src={% static "icon/left arrow.svg" %} alt="side_arrow" class="left_arrow">
+    <img src={{ poster_url_1 }} alt="poster" class="main_poster">
+    <img src={% static "icon/right arrow.svg" %} alt="side_arrow" class="right_arrow">
+    
+    <div class="group-ellipse">
+            <div class="ellipse"></div>
+            <div class="ellipse-2"></div>
+            <div class="ellipse-3"></div>
+    </div>
+
+    <!-- NEW GROUP -->
+     <div class="new_group">
+        <h1 class="new">Новинки</h1>
+        <img src={% static "icon/left arrow.svg" %} alt="new_letf" class="new_left">
+        <img src={% static "icon/right arrow.svg" %} alt="new_right" class="new_right">
+        
+        <div class="poster-container">
+            {% for movie in new_posters %}
+                <div class="poster-box">
+                {% if movie.poster_url %}
+                    <img src="{{ movie.poster_url }}" alt="Movie Poster" style="width: 300px;">
+                {% else %}
+                    <p>Постер не знайдено</p>
+                {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+        <span class="new_name"><h3>Назва фільму</h3></span>
+        <span class="new_name1"><h3>Назва фільму</h3></span>
+        <span class="new_name2"><h3>Назва фільму</h3></span>
+        <span class="new_name3"><h3>Назва фільму</h3></span>
+     </div>
+
+    <!-- TOP GROUP -->
+<div class="top-group">
+    <h1 class="top">Топ 10</h1>
+    <img src={% static "icon/left arrow.svg.svg" %} alt="top_left" class="top_left">
+    <img src={% static "icon/right arrow.svg.svg" %} alt="top_right" class="top_right">
+
+    <div class="top10-container">
+        {% for movie in top10_posters %}
+            <div class="top10-box">
+                {% if movie.poster_url %}
+                    <img src="{{ movie.poster_url }}" alt="Movie Poster">
+                {% else %}
+                    <p>Постер не знайдено</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+    <!-- POP GROUP -->
+     <div class="pop-group">
+        <h1 class="pop">Популярне</h1>
+        <img src="../movies_project/static/icon/left arrow.svg" alt="top_letf" class="pop_left">
+        <img src="../movies_project/static/icon/right arrow.svg" alt="top_right" class="pop_right">
+         <div class="popular-container">
+        {% for movie in popular_posters %}
+            <div class="popular-box">
+                {% if movie.poster_url %}
+                    <img src="{{ movie.poster_url }}" alt="Movie Poster">
+                {% else %}
+                    <p>Постер не знайдено</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+        </div>
+        <span class="pop_name"><h3>Назва фільму</h3></span>
+        <span class="pop_name1"><h3>Назва фільму</h3></span>
+        <span class="pop_name2"><h3>Назва фільму</h3></span>
+        <span class="pop_name3"><h3>Назва фільму</h3></span>
+      </div>
+<!-- FOOTER -->
+ <div class="footer">
+    <div class="rec_foot">
+        <h1 class="foot_logo">Movies</h1>
+        <p class="txt">MOVIES - місце, де ви знайдете трейлери до всіх популярних фільмів. Обирайте що подивитися.</p>
+        <h4 class="foot_txt">Шукайте нас тут</h4>
+        <h4 class="foot_txt1">Instagram</h4>
+        <h4 class="foot_txt2">Telegram</h4>
+        <img class="telegram" src={% static "icon/telegram.svg" %} alt="tg">
+        <img class="instagram" src={% static "icon/instagram.svg" %} alt="inst">
+        <h4 class="foot_txt3">Зверніться у підтримку</h4>
+        <h4 class="foot_txt4">movieswatch@gmail.com</h4>
+        <h4 class="foot_txt5">holovnasun@gmail.com</h4>
+        <h3 class="foot_txt6">Головна</h3>
+        <h3 class="foot_txt7">Фільми</h3>
+        <h3 class="foot_txt8">Серіали</h3>
+        <h3 class="foot_txt9">Новинки</h3>
+        <h3 class="foot_txt10">Топ 10</h3>
+        <div class="line"></div>
+        <h6 class="foot_txt0">© 2025 Moves. Усі права захищені.</h6>
+    </div>
+ </div>
+      
+
+</div>
+</body>
+</html>
