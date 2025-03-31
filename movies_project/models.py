@@ -5,6 +5,7 @@ class movies(models.Model):
     class Meta:
         db_table = 'movies'  # Явно вказуємо ім'я таблиці
     # Поля відповідають колонкам таблиці
+
     home_page = models.TextField()  # Home_Page
     movie_name = models.CharField(max_length=255)  # Movie_Name
     genres = models.TextField()  # Genres
@@ -21,6 +22,6 @@ class movies(models.Model):
     revenue_usd = models.BigIntegerField()  # Revenue_USD
     run_time_minutes = models.IntegerField()  # Run_Time_Minutes
     release_country = models.CharField(max_length=255)
-
+    poster_url = models.TextField()
     def __str__(self):
         return self.movie_name

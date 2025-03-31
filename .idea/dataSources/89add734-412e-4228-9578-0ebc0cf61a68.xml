@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="postgres@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
       <Grants>1||-9223372036854775808|c|G
@@ -4277,11 +4277,11 @@ false Zulu
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="272" parent="271" name="products_id_seq">
-      <DasType>integer|0s</DasType>
       <ObjectId>24852</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1219</StateNumber>
+      <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <table id="273" parent="271" name="products">
@@ -4291,40 +4291,40 @@ false Zulu
       <OwnerName>postgres</OwnerName>
     </table>
     <column id="274" parent="273" name="id">
-      <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;products_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1219</StateNumber>
+      <StoredType>integer|0s</StoredType>
       <SequenceId>24852</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="275" parent="273" name="productname">
-      <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1219</StateNumber>
+      <StoredType>varchar(30)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="276" parent="273" name="manufacturer">
-      <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1219</StateNumber>
+      <StoredType>varchar(20)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="277" parent="273" name="productcount">
-      <DasType>integer|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>4</Position>
       <StateNumber>1219</StateNumber>
+      <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="278" parent="273" name="price">
-      <DasType>numeric|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>1219</StateNumber>
+      <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <index id="279" parent="273" name="products_pkey">

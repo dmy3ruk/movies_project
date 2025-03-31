@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5871545f-f7a0-47ad-b410-330098a19b3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/movies_project/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movies_project/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/movies_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/movies_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
+    <list default="true" id="5871545f-f7a0-47ad-b410-330098a19b3b" name="Changes" comment="add posters">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/89add734-412e-4228-9578-0ebc0cf61a68.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/89add734-412e-4228-9578-0ebc0cf61a68.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies_project/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/movies_project/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/movies_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +28,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dmy3ruk&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dmy3ruk/movies_project&quot;,
+    &quot;accountId&quot;: &quot;8e22ba6a-90e1-4d36-88d9-bf18b41e3014&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -43,6 +54,7 @@
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -115,7 +127,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -133,18 +146,116 @@
       <workItem from="1742220983227" duration="732000" />
       <workItem from="1742229106158" duration="4348000" />
       <workItem from="1742233726655" duration="18742000" />
+      <workItem from="1742310938601" duration="466000" />
+      <workItem from="1742311514668" duration="1657000" />
+      <workItem from="1742371932137" duration="10000" />
+      <workItem from="1742371953256" duration="1894000" />
+      <workItem from="1742653755672" duration="9788000" />
+      <workItem from="1742752362049" duration="8000" />
+      <workItem from="1742820787755" duration="244000" />
+      <workItem from="1743078354253" duration="726000" />
+      <workItem from="1743260141259" duration="48000" />
+      <workItem from="1743260357163" duration="8000" />
+      <workItem from="1743260579760" duration="3627000" />
+      <workItem from="1743328812420" duration="1288000" />
+      <workItem from="1743330568645" duration="1804000" />
+      <workItem from="1743333065783" duration="5928000" />
+      <workItem from="1743341522272" duration="13846000" />
+      <workItem from="1743426790898" duration="695000" />
+      <workItem from="1743435059276" duration="491000" />
+      <workItem from="1743435565334" duration="3000" />
     </task>
+    <task id="LOCAL-00001" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742310983798</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742310983798</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311105205</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311105205</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311134709</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311134709</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311163894</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311163894</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311299921</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311299921</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311558923</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311558923</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311600279</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311600279</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add posters">
+      <option name="closed" value="true" />
+      <created>1742311832694</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742311832694</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add posters" />
+    <option name="LAST_COMMIT_MESSAGE" value="add posters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="django-line">
           <url>file://$PROJECT_DIR$/templates/index.html</url>
-          <line>6</line>
+          <line>5</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

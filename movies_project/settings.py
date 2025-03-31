@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'movies_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = { 'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))}
+DATABASES = { 'default': dj_database_url.config(default="postgresql://postgres:postgres1240@192.168.64.2:5432/movies_db")}
 
 
 # Password validation

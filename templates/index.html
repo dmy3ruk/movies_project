@@ -4,75 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href={% static 'css/style.css' %}?{% now "U" %}>
+    <link rel="stylesheet" href={% static 'css/style.css' %}?{% now "U" %}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
     <title>Movies</title>
 </head>
 <body>
-    <!-- HEADER-->
+<!-- HEADER-->
 <div>
     <header class="header">
-    <span class="logo">Movies</span> 
-    <span class="nav">Головна</span>
-    <span class="nav">Фільми
-        <img src={% static "icon/Arrow.svg" %} class="arrow"/>
-    </span>
-    <span class="nav">Серіали
-         <img src={% static "icon/Arrow.svg" %} class="arrow"/>
-    </span>
-    <span class="nav">Новинки</span>
-    <span class="nav">Топ-10</span>
-    <button class="button">
-        <span class="button_text">Пошук </span> 
-    </button>
+        <span class="logo">Movies</span>
+        <a href="#" id="main" class="nav">Головна</a>
+        <div class="menu films">
+              <span>  <a href="#" id="filmsBtn" class="nav">Фільми
+                    <img src="/templates/static/icon/Arrow.svg" class="arrow"/></a></span>
+            <div class="dropdown" id="filmsDropdown">
+                <a href="/templates/films/action.html">Бойовики</a>
+                <a href="/templates/films/bio.html">Біографічні</a>
+                <a href="/templates/films/detective.html">Детективи</a>
+                <a href="/templates/films/doc.html">Документальні</a>
+                <a href="/templates/films/drama.html">Драми</a>
+                <a href="/templates/films/horror.html">Жахи</a>
+                <a href="/templates/films/history.html">Історичні</a>
+                <a href="/templates/films/comedy.html">Комедії</a>
+                <a href="/templates/films/crime.html">Кримінали</a>
+                <a href="/templates/films/melodrams.html">Мелодрами</a>
+                <a href="/templates/films/mistic.html">Містика</a>
+                <a href="/templates/films/cartoons.html">Мультфільми</a>
+                <a href="/templates/films/musical.html">Мюзикли</a>
+                <a href="/templates/films/adventure.html">Пригодницькі</a>
+                <a href="/templates/films/romance.html">Романтичні</a>
+                <a href="/templates/films/family.html">Сімейні</a>
+                <a href="/templates/films/sport.html">Спорт</a>
+                <a href="/templates/films/thriller.html">Трилери</a>
+                <a href="/templates/films/fantastic.html">Фантастичні</a>
+                <a href="/templates/films/fantasy.html">Фентезі</a>
+            </div>
+        </div>
+        <div class="dropdown-menu">
+                        <span><a href="#" id="serialsBtn" class="nav">Серіали
+                            <img src="/templates/static/icon/Arrow.svg" class="arrow"/></a></span>
+            <div class="dropdown_content" id="serialsDropdown">
+                <a href="/templates/serials/detectives.html">Детективи</a>
+                <a href="/templates/serials/dorams.html">Дорами</a>
+                <a href="/templates/serials/drams.html">Драми</a>
+                <a href="/templates/serials/horrors.html">Жахи</a>
+                <a href="/templates/serials/history_s.html">Історичні</a>
+                <a href="/templates/serials/comedy_s.html">Комедії</a>
+                <a href="/templates/serials/melodram_s.html">Мелодрами</a>
+                <a href="/templates/serials/cartoon_s.html">Мультфільми</a>
+                <a href="/templates/serials/adventure_s.html">Пригодницькі</a>
+                <a href="/templates/serials/real.html">Реальні події</a>
+                <a href="/templates/serials/thrillers.html">Трилери</a>
+                <a href="/templates/serials/fantasy_s.html">Фантастичні</a>
+            </div>
+        </div>
+        <a href="#" class="nav">Новинки</a>
+        <a href="#" class="nav">Топ-10</a>
+        <a href="#" class="nav">Обране</a>
+        <a href="sign.html" style="text-decoration: none;">
+            <button class="button">
+                <span class="button_text">Увійти</span>
+            </button>
+        </a>
     </header>
 </div>
 
-    <!-- POSTER GROUP -->
+<!-- POSTER GROUP -->
 <div>
-    <img src={% static "icon/left arrow.svg" %} alt="side_arrow" class="left_arrow">
-    <img src={{ poster_url_1 }} alt="poster" class="main_poster">
-    <img src={% static "icon/right arrow.svg" %} alt="side_arrow" class="right_arrow">
-    
+    <img src="/templates/static/icon/left arrow.svg" alt="side arrow" class="left_arrow">
+    <img src="/templates/static/images/main_poster.png" alt="poster" class="main_poster">
+    <img src="/templates/static/icon/right arrow.svg" alt="side arrow" class="right_arrow">
+
     <div class="group-ellipse">
-            <div class="ellipse"></div>
-            <div class="ellipse-2"></div>
-            <div class="ellipse-3"></div>
+        <div class="ellipse"></div>
+        <div class="ellipse-2"></div>
+        <div class="ellipse-3"></div>
     </div>
 
     <!-- NEW GROUP -->
-     <div class="new_group">
+    <div class="new_group">
         <h1 class="new">Новинки</h1>
-        <img src={% static "icon/left arrow.svg" %} alt="new_letf" class="new_left">
-        <img src={% static "icon/right arrow.svg" %} alt="new_right" class="new_right">
-        
+        <img src="/templates/static/icon/left arrow.svg" alt="new_letf" class="new_left">
+        <img src="/templates/static/icon/right arrow.svg" alt="new_right" class="new_right">
         <div class="poster-container">
             {% for movie in new_posters %}
                 <div class="poster-box">
-                {% if movie.poster_url %}
-                    <img src="{{ movie.poster_url }}" alt="Movie Poster" style="width: 300px;">
-                {% else %}
-                    <p>Постер не знайдено</p>
-                {% endif %}
+                    {% if movie.poster_url %}
+                        <img src="{{ movie.poster_url }}" alt="Movie Poster" style="width: 300px;">
+                    {% else %}
+                        <p>Постер не знайдено</p>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
-        </div>
-        <span class="new_name"><h3>Назва фільму</h3></span>
-        <span class="new_name1"><h3>Назва фільму</h3></span>
-        <span class="new_name2"><h3>Назва фільму</h3></span>
-        <span class="new_name3"><h3>Назва фільму</h3></span>
-     </div>
+    </div>
+    <span class="new_name"><h3>Назва фільму</h3></span>
+    <span class="new_name1"><h3>Назва фільму</h3></span>
+    <span class="new_name2"><h3>Назва фільму</h3></span>
+    <span class="new_name3"><h3>Назва фільму</h3></span>
+</div>
 
-    <!-- TOP GROUP -->
+<!-- TOP GROUP -->
 <div class="top-group">
     <h1 class="top">Топ 10</h1>
-    <img src={% static "icon/left arrow.svg.svg" %} alt="top_left" class="top_left">
-    <img src={% static "icon/right arrow.svg.svg" %} alt="top_right" class="top_right">
-
+    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="top_left">
+    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="top_right">
     <div class="top10-container">
         {% for movie in top10_posters %}
             <div class="top10-box">
@@ -85,14 +124,18 @@
         {% endfor %}
     </div>
 </div>
+<span class="top_name"><h3>Назва фільму</h3></span>
+<span class="top_name1"><h3>Назва фільму</h3></span>
+<span class="top_name2"><h3>Назва фільму</h3></span>
+<span class="top_name3"><h3>Назва фільму</h3></span>
+</div>
 
-
-    <!-- POP GROUP -->
-     <div class="pop-group">
-        <h1 class="pop">Популярне</h1>
-        <img src="../movies_project/static/icon/left arrow.svg" alt="top_letf" class="pop_left">
-        <img src="../movies_project/static/icon/right arrow.svg" alt="top_right" class="pop_right">
-         <div class="popular-container">
+<!-- POP GROUP -->
+<div class="pop-group">
+    <h1 class="pop">Популярне</h1>
+    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="pop_left">
+    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="pop_right">
+    <div class="popular-container">
         {% for movie in popular_posters %}
             <div class="popular-box">
                 {% if movie.poster_url %}
@@ -103,22 +146,22 @@
             </div>
         {% endfor %}
     </div>
-        </div>
-        <span class="pop_name"><h3>Назва фільму</h3></span>
-        <span class="pop_name1"><h3>Назва фільму</h3></span>
-        <span class="pop_name2"><h3>Назва фільму</h3></span>
-        <span class="pop_name3"><h3>Назва фільму</h3></span>
-      </div>
+</div>
+<span class="pop_name"><h3>Назва фільму</h3></span>
+<span class="pop_name1"><h3>Назва фільму</h3></span>
+<span class="pop_name2"><h3>Назва фільму</h3></span>
+<span class="pop_name3"><h3>Назва фільму</h3></span>
+</div>
 <!-- FOOTER -->
- <div class="footer">
+<div class="footer">
     <div class="rec_foot">
         <h1 class="foot_logo">Movies</h1>
         <p class="txt">MOVIES - місце, де ви знайдете трейлери до всіх популярних фільмів. Обирайте що подивитися.</p>
         <h4 class="foot_txt">Шукайте нас тут</h4>
         <h4 class="foot_txt1">Instagram</h4>
         <h4 class="foot_txt2">Telegram</h4>
-        <img class="telegram" src={% static "icon/telegram.svg" %} alt="tg">
-        <img class="instagram" src={% static "icon/instagram.svg" %} alt="inst">
+        <img class="telegram" src="/templates/static/icon/telegram.svg" alt="tg">
+        <img class="instagram" src="/templates/static/icon/instagram.svg" alt="inst">
         <h4 class="foot_txt3">Зверніться у підтримку</h4>
         <h4 class="foot_txt4">movieswatch@gmail.com</h4>
         <h4 class="foot_txt5">holovnasun@gmail.com</h4>
@@ -130,9 +173,8 @@
         <div class="line"></div>
         <h6 class="foot_txt0">© 2025 Moves. Усі права захищені.</h6>
     </div>
- </div>
-      
-
 </div>
+</div>
+<script src="static/script.js"></script>
 </body>
 </html>
