@@ -22,5 +22,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='')
+    path('', views.home, name=''),
+    path('genre/<str:genre>/', views.genres_films, name='genre'),
+    path('signIn/', views.signIn, name='signIn'),
 ]

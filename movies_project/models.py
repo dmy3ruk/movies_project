@@ -23,5 +23,6 @@ class movies(models.Model):
     run_time_minutes = models.IntegerField()  # Run_Time_Minutes
     release_country = models.CharField(max_length=255)
     poster_url = models.TextField()
+    media_type = models.TextField(default="none")
     def __str__(self):
         return self.movie_name

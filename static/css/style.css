@@ -276,8 +276,9 @@ text-decoration: none;
   border-radius: 2px;
 }
 .new_name{
+  gap: 100px;
   top: 1170px;
-  left: 120px;
+  margin-left: 120px;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   font-size: 20px;
@@ -425,7 +426,7 @@ text-decoration: none;
 }
 .top_name{
   top: 1720px;
-  left: 120px;
+  margin-left: 120px;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   font-size: 20px;
@@ -566,7 +567,7 @@ text-decoration: none;
 }
 .pop_name{
   top: 2270px;
-  left: 120px;
+  margin-left: 120px;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   font-size: 20px;
@@ -783,3 +784,50 @@ text-decoration: none;
   color: #ffffff;
   font-size: 14px;
 }
+
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px; /* було 10px — зменшили до 5px */
+  margin-top: 20px;
+  padding: 0 5px; /* трохи зменшили бокові відступи */
+}
+
+
+    .movie {
+      text-align: center;
+    }
+
+    .movie p{
+      color: white;
+    }
+    .movie img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .pagination button, .load-more {
+      background-color: transparent;
+      border: 2px solid red;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .desc{
+      color: white;
+    }
+
+
+    .bold {
+      font-weight: bold;
+    }

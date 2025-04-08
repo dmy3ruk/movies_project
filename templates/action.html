@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+{% load static %}
+<title>Genre</title>
+{% block content %}
+    <main>
+        <p class="desc">{{ genre }}</p>
+        <div class="movies-grid">
+            {% for movie in posters_data %}
+                <div class="movie">
+                    {% if movie.poster_url %}
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+                        <p class="desc">{{ movie.movie_name }}</p>
+                    {% else %}
+                        <p>Постер не знайдено</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="pagination">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="load-more">Завантажити ще</button>
+        </div>
+
+        <div class="desc">
+            <p>
+                Анімація — це жанр, де можливе все: чарівні світи, неймовірні пригоди та герої, які можуть бути ким
+                завгодно — від звичайних людей до казкових істот. Завдяки візуальній магії, будь-яка історія оживає в
+                яскравих барвах, передаючи глибокі емоції, гумор і навіть серйозні теми. Від веселих комедій до епічних
+                драм, анімація здатна зачарувати як дітей, так і дорослих. Це мистецтво, яке стирає межі між реальністю
+                та фантазією, запрошуючи у світ, де мрії стають реальністю.
+            </p>
+        </div>
+    </main>
+
+{% endblock %}
+</body>
+</html>
