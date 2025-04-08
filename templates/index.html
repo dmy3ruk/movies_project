@@ -11,38 +11,42 @@
           rel="stylesheet">
     <title>Movies</title>
 </head>
-<body>
+<>
 <!-- HEADER-->
 <div>
     <header class="header">
         <span class="logo">Movies</span>
-        <a href="#" id="main" class="nav">Головна</a>
+        <a href="/" id="main" class="nav">Головна</a>
         <div class="menu films">
-              <span>  <a href="#" id="filmsBtn" class="nav">Фільми
-                    <img src="/templates/static/icon/Arrow.svg" class="arrow"/></a></span>
+    <span>
+        <a href="#" id="filmsBtn" class="nav">Фільми
+            <img src="/templates/static/icon/Arrow.svg" class="arrow"/>
+        </a>
+    </span>
             <div class="dropdown" id="filmsDropdown">
-                <a href="/templates/films/action.html">Бойовики</a>
-                <a href="/templates/films/bio.html">Біографічні</a>
-                <a href="/templates/films/detective.html">Детективи</a>
-                <a href="/templates/films/doc.html">Документальні</a>
-                <a href="/templates/films/drama.html">Драми</a>
-                <a href="/templates/films/horror.html">Жахи</a>
-                <a href="/templates/films/history.html">Історичні</a>
-                <a href="/templates/films/comedy.html">Комедії</a>
-                <a href="/templates/films/crime.html">Кримінали</a>
-                <a href="/templates/films/melodrams.html">Мелодрами</a>
-                <a href="/templates/films/mistic.html">Містика</a>
-                <a href="/templates/films/cartoons.html">Мультфільми</a>
-                <a href="/templates/films/musical.html">Мюзикли</a>
-                <a href="/templates/films/adventure.html">Пригодницькі</a>
-                <a href="/templates/films/romance.html">Романтичні</a>
-                <a href="/templates/films/family.html">Сімейні</a>
-                <a href="/templates/films/sport.html">Спорт</a>
-                <a href="/templates/films/thriller.html">Трилери</a>
-                <a href="/templates/films/fantastic.html">Фантастичні</a>
-                <a href="/templates/films/fantasy.html">Фентезі</a>
+                <a href="/genre/action" class="genre-link">Бойовики</a>
+                <a href="/genre/biography" class="genre-link">Біографічні</a>
+                <a href="/genre/detective" class="genre-link">Детективи</a>
+                <a href="/genre/documentary" class="genre-link">Документальні</a>
+                <a href="/genre/drama" class="genre-link">Драми</a>
+                <a href="/genre/horror" class="genre-link">Жахи</a>
+                <a href="/genre/history" class="genre-link">Історичні</a>
+                <a href="/genre/comedy" class="genre-link">Комедії</a>
+                <a href="/genre/crime" class="genre-link">Кримінали</a>
+                <a href="/genre/melodrama" class="genre-link">Мелодрами</a>
+                <a href="/genre/mystic" class="genre-link">Містика</a>
+                <a href="/genre/cartoons" class="genre-link">Мультфільми</a>
+                <a href="/genre/musical" class="genre-link">Мюзикли</a>
+                <a href="/genre/adventure" class="genre-link">Пригодницькі</a>
+                <a href="/genre/romance" class="genre-link">Романтичні</a>
+                <a href="/genre/family" class="genre-link">Сімейні</a>
+                <a href="/genre/sport" class="genre-link">Спорт</a>
+                <a href="/genre/thriller" class="genre-link">Трилери</a>
+                <a href="/genre/fantastic" class="genre-link">Фантастичні</a>
+                <a href="/genre/fantasy" class="genre-link">Фентезі</a>
             </div>
         </div>
+
         <div class="dropdown-menu">
                         <span><a href="#" id="serialsBtn" class="nav">Серіали
                             <img src="/templates/static/icon/Arrow.svg" class="arrow"/></a></span>
@@ -65,35 +69,58 @@
         <a href="#" class="nav">Топ-10</a>
         <a href="#" class="nav">Обране</a>
         <a href="sign.html" style="text-decoration: none;">
-            <button class="button">
+            <button class="button" {% url 'signIn' %}>
                 <span class="button_text">Увійти</span>
             </button>
         </a>
     </header>
 </div>
 
-<!-- POSTER GROUP -->
-<div>
-    <img src="/templates/static/icon/left arrow.svg" alt="side arrow" class="left_arrow">
-    <img src="/templates/static/images/main_poster.png" alt="poster" class="main_poster">
-    <img src="/templates/static/icon/right arrow.svg" alt="side arrow" class="right_arrow">
+{% block content %}
+    <!-- POSTER GROUP -->
+    <div>
+        <img src="/templates/static/icon/left arrow.svg" alt="side arrow" class="left_arrow">
+        <img src="/templates/static/images/main_poster.png" alt="poster" class="main_poster">
+        <img src="/templates/static/icon/right arrow.svg" alt="side arrow" class="right_arrow">
 
-    <div class="group-ellipse">
-        <div class="ellipse"></div>
-        <div class="ellipse-2"></div>
-        <div class="ellipse-3"></div>
+        <div class="group-ellipse">
+            <div class="ellipse"></div>
+            <div class="ellipse-2"></div>
+            <div class="ellipse-3"></div>
+        </div>
+
+        <!-- NEW GROUP -->
+        <div class="new_group">
+            <h1 class="new">Новинки</h1>
+            {#        <img src="/templates/static/icon/left arrow.svg" alt="new_letf" class="new_left">#}
+            {#        <img src="/templates/static/icon/right arrow.svg" alt="new_right" class="new_right">#}
+            <div class="poster-container">
+                {% for movie in new_posters %}
+                    <div class="poster-box">
+                        {% if movie.poster_url %}
+                            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+                            <span class="new_name"><h3>{{ movie.movie_name }}</h3></span>
+                        {% else %}
+                            <p>Постер не знайдено</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 
-    <!-- NEW GROUP -->
-    <div class="new_group">
-        <h1 class="new">Новинки</h1>
-        <img src="/templates/static/icon/left arrow.svg" alt="new_letf" class="new_left">
-        <img src="/templates/static/icon/right arrow.svg" alt="new_right" class="new_right">
-        <div class="poster-container">
-            {% for movie in new_posters %}
+    <!-- TOP GROUP -->
+    <div class="top-group">
+        <h1 class="top">Топ 10</h1>
+        {#    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="top_left">#}
+        {#    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="top_right">#}
+        <div class="top10-container">
+            {% for movie in top10_posters %}
                 <div class="poster-box">
                     {% if movie.poster_url %}
-                        <img src="{{ movie.poster_url }}" alt="Movie Poster" style="width: 300px;">
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+                        <span class="top_name"><h3>{{ movie.movie_name }}</h3></span>
                     {% else %}
                         <p>Постер не знайдено</p>
                     {% endif %}
@@ -101,57 +128,36 @@
             {% endfor %}
         </div>
     </div>
-    <span class="new_name"><h3>Назва фільму</h3></span>
-    <span class="new_name1"><h3>Назва фільму</h3></span>
-    <span class="new_name2"><h3>Назва фільму</h3></span>
-    <span class="new_name3"><h3>Назва фільму</h3></span>
-</div>
-
-<!-- TOP GROUP -->
-<div class="top-group">
-    <h1 class="top">Топ 10</h1>
-    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="top_left">
-    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="top_right">
-    <div class="top10-container">
-        {% for movie in top10_posters %}
-            <div class="top10-box">
-                {% if movie.poster_url %}
-                    <img src="{{ movie.poster_url }}" alt="Movie Poster">
-                {% else %}
-                    <p>Постер не знайдено</p>
-                {% endif %}
-            </div>
-        {% endfor %}
+    {#<span class="top_name"><h3>Назва фільму</h3></span>#}
+    {#<span class="top_name1"><h3>Назва фільму</h3></span>#}
+    {#<span class="top_name2"><h3>Назва фільму</h3></span>#}
+    {#<span class="top_name3"><h3>Назва фільму</h3></span>#}
     </div>
-</div>
-<span class="top_name"><h3>Назва фільму</h3></span>
-<span class="top_name1"><h3>Назва фільму</h3></span>
-<span class="top_name2"><h3>Назва фільму</h3></span>
-<span class="top_name3"><h3>Назва фільму</h3></span>
-</div>
 
-<!-- POP GROUP -->
-<div class="pop-group">
-    <h1 class="pop">Популярне</h1>
-    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="pop_left">
-    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="pop_right">
-    <div class="popular-container">
-        {% for movie in popular_posters %}
-            <div class="popular-box">
-                {% if movie.poster_url %}
-                    <img src="{{ movie.poster_url }}" alt="Movie Poster">
-                {% else %}
-                    <p>Постер не знайдено</p>
-                {% endif %}
-            </div>
-        {% endfor %}
+    <!-- POP GROUP -->
+    <div class="pop-group">
+        <h1 class="pop">Популярне</h1>
+        {#    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="pop_left">#}
+        {#    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="pop_right">#}
+        <div class="popular-container">
+            {% for movie in popular_posters %}
+                <div class="poster-box">
+                    {% if movie.poster_url %}
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+                        <span class="pop_name"><h3>{{ movie.movie_name }}</h3></span>
+                    {% else %}
+                        <p>Постер не знайдено</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
-<span class="pop_name"><h3>Назва фільму</h3></span>
-<span class="pop_name1"><h3>Назва фільму</h3></span>
-<span class="pop_name2"><h3>Назва фільму</h3></span>
-<span class="pop_name3"><h3>Назва фільму</h3></span>
-</div>
+    {#<span class="pop_name"><h3>Назва фільму</h3></span>#}
+    {#<span class="pop_name1"><h3>Назва фільму</h3></span>#}
+    {#<span class="pop_name2"><h3>Назва фільму</h3></span>#}
+    {#<span class="pop_name3"><h3>Назва фільму</h3></span>#}
+    </div>
+{% endblock %}
 <!-- FOOTER -->
 <div class="footer">
     <div class="rec_foot">
@@ -175,6 +181,6 @@
     </div>
 </div>
 </div>
-<script src="static/script.js"></script>
+<script src="{% static 'script.js' %}"></script>
 </body>
 </html>
