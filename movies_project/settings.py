@@ -80,8 +80,16 @@ WSGI_APPLICATION = 'movies_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = { 'default': dj_database_url.config(default="postgresql://postgres:postgres1240@192.168.64.2:5432/movies_db")}
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'movies_test',  # заміни на назву своєї бази
+        'USER': 'postgres',  # або інший користувач
+        'PASSWORD': '1240postgres',
+        'HOST': '192.168.10.39',  # IP віртуалки
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
