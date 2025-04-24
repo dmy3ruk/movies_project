@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/wachlist.css' %}?{% now 'U' %}">
+<img class="bg-img" src="{% static "images/img.png" %}">
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <img src="https://via.placeholder.com/100" alt="User avatar" class="avatar"/>
+    <p class="username">{{ user.username }}</p>
+  </section>
+
+  <!-- Watchlist Section -->
+  <div class="watchlist">
+    <h2>Список фільмів, які я хочу переглянути:</h2>
+  </div>
+    <div id="playlist-container" class="movie-grid">
+      <!-- Фільми з плейлиста будуть тут -->
+    </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fetch the user's watchlist from the API
+        fetch('/api/watchlist/')
+            .then(response => response.json())
+            .then(watchlist => {
+                const playlistContainer = document.getElementById('playlist-container');
+                playlistContainer.innerHTML = '';
+
+                if (watchlist.length === 0) {
+                    playlistContainer.innerHTML = '<p>У вашому плейлисті немає фільмів.</p>';
+                    return;
+                }
+
+                // For each movie in the watchlist, render it
+                watchlist.forEach(item => {
+                    const film = item.movie;  // The movie object is nested inside the watchlist item
+
+                    const filmElement = document.createElement('div');
+                    filmElement.classList.add('movie');
+
+                    // Check if poster_url exists before attempting to display it
+                    const filmPoster = document.createElement('img');
+                    if (film.poster_url) {
+                        filmPoster.src = film.poster_url;
+                    } else {
+                        filmPoster.src = "https://via.placeholder.com/150x220"; // Default image if poster_url is missing
+                    }
+                    filmPoster.alt = `${film.movie_name} Poster`;
+                    filmElement.appendChild(filmPoster);
+
+                    const filmTitle = document.createElement('p');
+                    filmTitle.textContent = film.movie_name;
+                    filmElement.appendChild(filmTitle);
+
+                    playlistContainer.appendChild(filmElement);
+                });
+            })
+            .catch(error => console.error('Помилка завантаження фільмів:', error));
+    });
+  </script>
+{% endblock %}

@@ -1,21 +1,21 @@
 {% extends "index.html" %}
 {% load static %}
-<title>Genre</title>
 {% block content %}
     <main>
         <p class="desc">{{ genre }}</p>
         <div class="movies-grid">
             {% for movie in posters_data %}
-                <div class="movie">
+                <div class="movie" data-id="{{ movie.id }}" >
                     {% if movie.poster_url %}
-                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
                         <p class="desc">{{ movie.movie_name }}</p>
+                        <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+
                     {% else %}
                         <p>Постер не знайдено</p>
                     {% endif %}
                 </div>
             {% endfor %}
-
         </div>
 
         <div class="pagination">
@@ -43,6 +43,17 @@
         </div>
     </main>
 
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+       const movies = document.querySelectorAll('.movie');
+       movies.forEach(movie => {
+           movie.addEventListener('click', function () {
+               const movieId = movie.getAttribute('data-id');
+               window.location.href = `/film/${movieId}`;
+           });
+       });
+   });
+</script>
 {% endblock %}
-</body>
-</html>
+
