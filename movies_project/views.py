@@ -13,14 +13,10 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from movies_project.forms import RegistrationForm, LoginForm
 from movies_project.models import MovieInfo, MovieFinancials, movie_trailer, MovieCast, Watchlist
 from django.core.cache import cache
-
 from movies_project.serializers import WatchlistSerializer, MovieInfoSerializer
-
-TMDB_API_KEY = 'c9505d842969fd7f1552dc8f26690809'  # Замінити на свій TMDb API ключ
 
 
 class SignUpView(View):
@@ -184,13 +180,6 @@ def genres(genre, posters):
     ia = Cinemagoer()
     posters_data = find_movie_id(ia, posters)
     return posters_data
-
-
-movie = MovieInfo.objects.get(movie_name__icontains="Marry My Husband")
-print(movie.movie_name)
-print(movie.media_type)
-print(movie.genre)
-print(movie.home_page)
 
 
 def films_poster(request, genre):
