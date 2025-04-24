@@ -5,7 +5,7 @@ body {
 .header{
 width: 100%;
 height: 65px;
-background-color: #007BFF;
+background-color: #1B3A57;
 top: 25px;
 display: flex;
 align-items: center;
@@ -61,11 +61,11 @@ text-decoration: none;
   width: 1020px;
   top: 42px;
   left: -440px;
-  background: #1d3557;
+  background: #3d82e6;
   color: white;
   padding: 25px;
   display: none;
-  grid-template-columns: repeat(4, auto); 
+  grid-template-columns: repeat(4, auto);
   gap: 10px;
   min-width: 250px;
 }
@@ -99,13 +99,13 @@ text-decoration: none;
   font-size: 18px;
   position: absolute;
   width: 1020px;
-  top: 42px; 
+  top: 42px;
   left: -260px;
   background: #1d3557;
   color: white;
   padding: 25px;
   display: none;
-  grid-template-columns: repeat(4, auto); 
+  grid-template-columns: repeat(4, auto);
   gap: 10px;
   min-width: 250px;
 }
@@ -125,7 +125,7 @@ text-decoration: none;
       height: 30px;
       border-radius: 25px;
       border: 2px solid white;
-      background-color: #007BFF;
+      background-color: #1B3A57;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -150,13 +150,71 @@ text-decoration: none;
     }
 
 
+
+/* Hover effect for each poster */
+.poster-container img:hover {
+    border: 5px solid #007BFF;
+    border-radius: 2px;
+    transform: scale(1.05); /* Slightly enlarge the poster */
+}
+
+.top10-container img:hover {
+    border: 5px solid #007BFF;
+    border-radius: 2px;
+    transform: scale(1.05); /* Slightly enlarge the poster */
+}
+
+.popular-container img:hover {
+    border: 5px solid #007BFF;
+    border-radius: 2px;
+    transform: scale(1.05); /* Slightly enlarge the poster */
+}
+
+
 .poster-container{
+      overflow-y: hidden;
    margin-top: 20%;
 }
 
-.poster-container img {
-    width: 100px; /* Adjust the width */
-    height: auto; /* Maintain aspect ratio */
+.poster-container img{
+    margin-top:10px;
+    width:250px;
+    height:auto;
+}
+
+
+.rectangle {
+    width: 280px;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    background-color: black;
+}
+.poster-link {
+    position: relative;
+    display: inline-block;
+}
+
+.heart-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.poster-link:hover .heart-btn {
+    display: block;
+
+}
+
+.heart-btn.filled {
+    display: block !important;
 }
 
 
@@ -227,54 +285,9 @@ text-decoration: none;
   left: 600px;
   top: 745px;
 }
-.rectangle {
-  left: 70px;
-  top: 840px;
-  position: absolute;
-  width: 280px;
-  height: 340px;
-  background-color: #d9d9d9;
-}
-.rectangle:hover{
-  border: 5px solid #007BFF;
-  border-radius: 2px;
-}
-.rectangle1{
-  position: absolute;
-  width: 280px;
-  height: 340px;
-  left: 390px;
-  top: 840px;
-  background-color: #d9d9d9;
-}
-.rectangle1:hover{
-  border: 5px solid #007BFF;
-  border-radius: 2px;
-}
-.rectangle2 {
-  left: 710px;
-  top: 840px;
-  position: absolute;
-  width: 280px;
-  height: 340px;
-  background-color: #d9d9d9;
-}
-.rectangle2:hover{
-  border: 5px solid #007BFF;
-  border-radius: 2px;
-}
-.rectangle3 {
-  left: 1030px;
-  top: 840px;
-  position: absolute;
-  width: 280px;
-  height: 340px;
-  background-color: #d9d9d9;
-}
-.rectangle3:hover{
-  border: 5px solid #007BFF;
-  border-radius: 2px;
-}
+
+/* Ensure the posters are properly sized */
+
 .new_name{
   gap: 100px;
   top: 1170px;
@@ -351,7 +364,6 @@ text-decoration: none;
 
 .top10-container {
     margin-top: 5%;
-
 }
 .top10-container, .poster-container, .popular-container {
     display: flex;
@@ -365,13 +377,10 @@ text-decoration: none;
     white-space: nowrap; /* Запобігає перенесенню постерів */
 }
 
-.top10-box, .poster-box, .popular-box {
-    flex: 0 0 auto; /* Запобігає зміні розміру елементів */
-    text-align: center;
-}
 
 
 .top10-container img {
+       margin-top: 20%;
     width: 200px; /* Adjust the width */
     height: auto; /* Maintain aspect ratio */
 }
@@ -492,6 +501,9 @@ text-decoration: none;
     gap: 10px; /* Відстань між постерами */
     overflow-x: auto; /* Додає горизонтальну прокрутку, якщо елементів багато */
     padding-bottom: 10px;
+}
+.popular-container img{
+       margin-top: 20%;
 }
 
 .popular-box {
@@ -631,7 +643,7 @@ text-decoration: none;
   height: 350px;
   top: 2430px;
   left: 0;
-  background-color: #007bff;
+  background-color: #1B3A57;
 }
 .foot_logo{
   top: 10px;

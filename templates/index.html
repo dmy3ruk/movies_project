@@ -4,183 +4,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href={% static 'css/style.css' %}?{% now "U" %}>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?{% now 'U' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <title>Movies</title>
 </head>
-<>
-<!-- HEADER-->
-<div>
-    <header class="header">
-        <span class="logo">Movies</span>
-        <a href="/" id="main" class="nav">Головна</a>
-        <div class="menu films">
-    <span>
-        <a href="#" id="filmsBtn" class="nav">Фільми
-            <img src="/templates/static/icon/Arrow.svg" class="arrow"/>
-        </a>
-    </span>
-            <div class="dropdown" id="filmsDropdown">
-                <a href="/genre/action" class="genre-link">Бойовики</a>
-                <a href="/genre/biography" class="genre-link">Біографічні</a>
-                <a href="/genre/detective" class="genre-link">Детективи</a>
-                <a href="/genre/documentary" class="genre-link">Документальні</a>
-                <a href="/genre/drama" class="genre-link">Драми</a>
-                <a href="/genre/horror" class="genre-link">Жахи</a>
-                <a href="/genre/history" class="genre-link">Історичні</a>
-                <a href="/genre/comedy" class="genre-link">Комедії</a>
-                <a href="/genre/crime" class="genre-link">Кримінали</a>
-                <a href="/genre/melodrama" class="genre-link">Мелодрами</a>
-                <a href="/genre/mystic" class="genre-link">Містика</a>
-                <a href="/genre/cartoons" class="genre-link">Мультфільми</a>
-                <a href="/genre/musical" class="genre-link">Мюзикли</a>
-                <a href="/genre/adventure" class="genre-link">Пригодницькі</a>
-                <a href="/genre/romance" class="genre-link">Романтичні</a>
-                <a href="/genre/family" class="genre-link">Сімейні</a>
-                <a href="/genre/sport" class="genre-link">Спорт</a>
-                <a href="/genre/thriller" class="genre-link">Трилери</a>
-                <a href="/genre/fantastic" class="genre-link">Фантастичні</a>
-                <a href="/genre/fantasy" class="genre-link">Фентезі</a>
+<body>
+<!-- HEADER -->
+<header class="header">
+    <span id="logo" class="logo">Movies</span>
+    <div class="menu films">
+        <span>
+            <a href="#" id="filmsBtn" class="nav">Films
+                <img src="{% static 'icon/Arrow.svg' %}" class="arrow"/>
+            </a>
+        </span>
+        <div class="dropdown" id="filmsDropdown">
+                <a href="/films/action" class="genre-link">Action</a>
+                <a href="/films/biography" class="genre-link">Biography</a>
+                <a href="/films/detective" class="genre-link">Detective</a>
+                <a href="/films/documentary" class="genre-link">Documentary</a>
+                <a href="/films/drama" class="genre-link">Dramas</a>
+                <a href="/films/horror" class="genre-link">Horrors</a>
+                <a href="/films/history" class="genre-link">Historical</a>
+                <a href="/films/comedy" class="genre-link">Comedies</a>
+                <a href="/films/crime" class="genre-link">Crime</a>
+                <a href="/films/melodrama" class="genre-link">Melodrama</a>
+                <a href="/films/mystic" class="genre-link">Mystic</a>
+                <a href="/films/cartoons" class="genre-link">Cartoons</a>
+                <a href="/films/musical" class="genre-link">Musicals</a>
+                <a href="/films/adventure" class="genre-link">Adventures</a>
+                <a href="/films/romance" class="genre-link">Romances</a>
+                <a href="/films/family" class="genre-link">Family</a>
+                <a href="/films/sport" class="genre-link">Sport</a>
+                <a href="/films/thriller" class="genre-link">Thrillers</a>
+                <a href="/films/fantastic" class="genre-link">Fantastic</a>
+                <a href="/films/fantasy" class="genre-link">Fantasy</a>
             </div>
         </div>
 
         <div class="dropdown-menu">
-                        <span><a href="#" id="serialsBtn" class="nav">Серіали
-                            <img src="/templates/static/icon/Arrow.svg" class="arrow"/></a></span>
+                        <span><a href="#" id="serialsBtn" class="nav">Series
+                            <img src={% static "icon/Arrow.svg" %} class="arrow"/></a></span>
             <div class="dropdown_content" id="serialsDropdown">
-                <a href="/templates/serials/detectives.html">Детективи</a>
-                <a href="/templates/serials/dorams.html">Дорами</a>
-                <a href="/templates/serials/drams.html">Драми</a>
-                <a href="/templates/serials/horrors.html">Жахи</a>
-                <a href="/templates/serials/history_s.html">Історичні</a>
-                <a href="/templates/serials/comedy_s.html">Комедії</a>
-                <a href="/templates/serials/melodram_s.html">Мелодрами</a>
-                <a href="/templates/serials/cartoon_s.html">Мультфільми</a>
-                <a href="/templates/serials/adventure_s.html">Пригодницькі</a>
-                <a href="/templates/serials/real.html">Реальні події</a>
-                <a href="/templates/serials/thrillers.html">Трилери</a>
-                <a href="/templates/serials/fantasy_s.html">Фантастичні</a>
+                <a href="/serials/detective">Detective</a>
+                <a href="/serials/kdrama">K-drama</a>
+                <a href="/serials/drama">Drama</a>
+                <a href="/serials/horror">Horror</a>
+                <a href="/serials/history">Historical</a>
+                <a href="/serials/comedy">Comedies</a>
+                <a href="/serials/melodram">Melodramas</a>
+                <a href="/serials/cartoon">Cartoons</a>
+                <a href="/serials/adventure">Adventures</a>
+                <a href="/serials/real">Real life events</a>
+                <a href="/serials/thriller">Thrillers</a>
+                <a href="/serials/fantasy">Fantasy</a>
             </div>
-        </div>
-        <a href="#" class="nav">Новинки</a>
-        <a href="#" class="nav">Топ-10</a>
-        <a href="#" class="nav">Обране</a>
-        <a href="sign.html" style="text-decoration: none;">
-            <button class="button" {% url 'signIn' %}>
-                <span class="button_text">Увійти</span>
-            </button>
-        </a>
-    </header>
-</div>
+    </div>
+
+    <a href="#" class="nav">New</a>
+    <a href="#" class="nav">Top-10</a>
+{% if user.is_authenticated %}
+    <a href="/watchlist" class="nav">Selected</a>
+{% endif %}
+    {% if not user.is_authenticated %}
+    <a href="{% url 'signup' %}" style="text-decoration: none;">
+        <button class="button">
+            <span class="button_text">Sign in</span>
+        </button>
+    </a>
+    {% endif %}
+</header>
 
 {% block content %}
-    <!-- POSTER GROUP -->
-    <div>
-        <img src="/templates/static/icon/left arrow.svg" alt="side arrow" class="left_arrow">
-        <img src="/templates/static/images/main_poster.png" alt="poster" class="main_poster">
-        <img src="/templates/static/icon/right arrow.svg" alt="side arrow" class="right_arrow">
+<!-- POSTER GROUP -->
+<div>
+    <img src="{% static 'icon/left arrow.svg' %}" class="arrow"/>
+    <img src="{% static 'images/main_poster.png' %}" alt="poster" class="main_poster">
+    <img src="{% static 'icon/right arrow.svg' %}" class="arrow"/>
 
-        <div class="group-ellipse">
-            <div class="ellipse"></div>
-            <div class="ellipse-2"></div>
-            <div class="ellipse-3"></div>
+    <div class="group-ellipse">
+        <div class="ellipse"></div>
+        <div class="ellipse-2"></div>
+        <div class="ellipse-3"></div>
+    </div>
+
+    <!-- NEW GROUP -->
+   <div class="poster-container">
+    {% for movie in new_posters %}
+        <div class="poster-wrapper">
+            <a href="/film/{{ movie.id }}" class="poster-link">
+                {% if movie.poster_url %}
+                    <img class="rectangle" src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster">
+                    <span class="new_name"><h3>{{ movie.movie_name }}</h3></span>
+                            <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+
+                {% else %}
+                    <p>Poster is not found</p>
+                {% endif %}
+            </a>
         </div>
+    {% endfor %}
+</div>
 
-        <!-- NEW GROUP -->
-        <div class="new_group">
-            <h1 class="new">Новинки</h1>
-            {#        <img src="/templates/static/icon/left arrow.svg" alt="new_letf" class="new_left">#}
-            {#        <img src="/templates/static/icon/right arrow.svg" alt="new_right" class="new_right">#}
-            <div class="poster-container">
-                {% for movie in new_posters %}
-                    <div class="poster-box">
-                        {% if movie.poster_url %}
-                            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
-                            <span class="new_name"><h3>{{ movie.movie_name }}</h3></span>
-                        {% else %}
-                            <p>Постер не знайдено</p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+</div>
+
+<!-- TOP GROUP -->
+<div class="top-group">
+    <h1 class="top">Top 10</h1>
+    <div class="top10-container">
+        {% for movie in top10_posters %}
+            <div class="poster-box">
+                {% if movie.poster_url %}
+                    <a href="/film/{{ movie.id }}" class="poster-link">
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
+                        <span class="top_name"><h3>{{ movie.movie_name }}</h3></span>
+                        <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+
+                    </a>
+                {% else %}
+                    <p>Poster is not found</p>
+                {% endif %}
 
             </div>
-        </div>
+        {% endfor %}
     </div>
+</div>
 
-    <!-- TOP GROUP -->
-    <div class="top-group">
-        <h1 class="top">Топ 10</h1>
-        {#    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="top_left">#}
-        {#    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="top_right">#}
-        <div class="top10-container">
-            {% for movie in top10_posters %}
-                <div class="poster-box">
-                    {% if movie.poster_url %}
-                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
-                        <span class="top_name"><h3>{{ movie.movie_name }}</h3></span>
-                    {% else %}
-                        <p>Постер не знайдено</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    {#<span class="top_name"><h3>Назва фільму</h3></span>#}
-    {#<span class="top_name1"><h3>Назва фільму</h3></span>#}
-    {#<span class="top_name2"><h3>Назва фільму</h3></span>#}
-    {#<span class="top_name3"><h3>Назва фільму</h3></span>#}
-    </div>
-
-    <!-- POP GROUP -->
-    <div class="pop-group">
-        <h1 class="pop">Популярне</h1>
-        {#    <img src="/templates/static/icon/left arrow.svg" alt="top_letf" class="pop_left">#}
-        {#    <img src="/templates/static/icon/right arrow.svg" alt="top_right" class="pop_right">#}
-        <div class="popular-container">
-            {% for movie in popular_posters %}
-                <div class="poster-box">
-                    {% if movie.poster_url %}
-                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 300px;">
+<!-- POP GROUP -->
+<div class="pop-group">
+    <h1 class="pop">Popular</h1>
+    <div class="popular-container">
+        {% for movie in popular_posters %}
+            <div class="poster-box">
+                {% if movie.poster_url %}
+                    <a href="/film/{{ movie.id }}" class="poster-link" class="poster-link">
+                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
                         <span class="pop_name"><h3>{{ movie.movie_name }}</h3></span>
-                    {% else %}
-                        <p>Постер не знайдено</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
+                        <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+                    </a>
+                {% else %}
+                    <p>Poster is not found</p>
+                {% endif %}
+
+            </div>
+        {% endfor %}
     </div>
-    {#<span class="pop_name"><h3>Назва фільму</h3></span>#}
-    {#<span class="pop_name1"><h3>Назва фільму</h3></span>#}
-    {#<span class="pop_name2"><h3>Назва фільму</h3></span>#}
-    {#<span class="pop_name3"><h3>Назва фільму</h3></span>#}
-    </div>
+</div>
 {% endblock %}
+
 <!-- FOOTER -->
 <div class="footer">
     <div class="rec_foot">
         <h1 class="foot_logo">Movies</h1>
-        <p class="txt">MOVIES - місце, де ви знайдете трейлери до всіх популярних фільмів. Обирайте що подивитися.</p>
-        <h4 class="foot_txt">Шукайте нас тут</h4>
+        <p class="txt">MOVIES - is a place where you will find trailers to all popular films.</p>
+        <h4 class="foot_txt">Find us here</h4>
         <h4 class="foot_txt1">Instagram</h4>
         <h4 class="foot_txt2">Telegram</h4>
-        <img class="telegram" src="/templates/static/icon/telegram.svg" alt="tg">
-        <img class="instagram" src="/templates/static/icon/instagram.svg" alt="inst">
-        <h4 class="foot_txt3">Зверніться у підтримку</h4>
+        <img class="telegram" src="{% static 'icon/telegram.svg' %}" alt="tg">
+        <img class="instagram" src="{% static 'icon/instagram.svg' %}" alt="inst">
+        <h4 class="foot_txt3">Contact tech-support</h4>
         <h4 class="foot_txt4">movieswatch@gmail.com</h4>
         <h4 class="foot_txt5">holovnasun@gmail.com</h4>
-        <h3 class="foot_txt6">Головна</h3>
-        <h3 class="foot_txt7">Фільми</h3>
-        <h3 class="foot_txt8">Серіали</h3>
-        <h3 class="foot_txt9">Новинки</h3>
-        <h3 class="foot_txt10">Топ 10</h3>
+        <h3 class="foot_txt6">Main page</h3>
+        <h3 class="foot_txt7">Films</h3>
+        <h3 class="foot_txt8">Series</h3>
+        <h3 class="foot_txt9">New</h3>
+        <h3 class="foot_txt10">Top 10</h3>
         <div class="line"></div>
-        <h6 class="foot_txt0">© 2025 Moves. Усі права захищені.</h6>
+        <h6 class="foot_txt0">© 2025 Movies. All rights reserved.</h6>
     </div>
 </div>
-</div>
+
 <script src="{% static 'script.js' %}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("logo");
+    if (logo) {
+        logo.onclick = function () {
+            window.location.href = "/";
+        };
+    }
+    fetch('/api/films')
+        .then(response => response.json())
+        .then(films => {
+            document.querySelectorAll('.heart-btn').forEach(btn => {
+                const movieId = parseInt(btn.getAttribute('data-id'));
+
+                const film = films.find(f => f.id === movieId);
+                if (film && film.is_in_watchlist) {
+                    btn.textContent = "💖";
+                    btn.classList.add('filled');
+                } else {
+                    btn.textContent = "🤍";
+                }
+
+                btn.addEventListener('click', function () {
+                    const isInWatchlist = btn.classList.contains('filled');
+                    const url = `/api/${isInWatchlist ? 'remove_from' : 'add_to'}_watchlist/${movieId}/`;
+                    const method = isInWatchlist ? 'DELETE' : 'POST';
+
+                    fetch(url, {
+                        method: method,
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken'),  // Важливо: додай цей хелпер
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.message) {
+                            btn.textContent = isInWatchlist ? "🤍" : "💖";
+                            btn.classList.toggle('filled');
+                        } else {
+                            alert(data.error || data.message);
+                        }
+                    })
+                    .catch(err => console.error(err));
+                });
+            });
+        });
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
+
 </body>
 </html>

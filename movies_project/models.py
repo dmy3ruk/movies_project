@@ -1,28 +1,69 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class movies(models.Model):
-    class Meta:
-        db_table = 'movies'  # Явно вказуємо ім'я таблиці
-    # Поля відповідають колонкам таблиці
-
-    home_page = models.TextField()  # Home_Page
-    movie_name = models.CharField(max_length=255)  # Movie_Name
-    genres = models.TextField()  # Genres
-    overview = models.TextField()  # Overview
-    Cast = models.TextField()  # Cast (взято в лапки через зарезервоване слово)
-    original_language = models.CharField(max_length=2)  # Original_Language (як правило, це 2-літерний код мови)
-    storyline = models.TextField()  # Storyline
-    production_company = models.CharField(max_length=255)  # Production_Company
-    release_date = models.DateField()  # Release_Date
-    tagline = models.CharField(max_length=255, blank=True, null=True)  # Tagline
-    vote_average = models.FloatField()  # Vote_Average
-    vote_count = models.BigIntegerField()  # Vote_Count
-    budget_usd = models.BigIntegerField()  # Budget_USD
-    revenue_usd = models.BigIntegerField()  # Revenue_USD
-    run_time_minutes = models.IntegerField()  # Run_Time_Minutes
+class MovieInfo(models.Model):
+    movie_name = models.CharField(max_length=255)
+    storyline = models.TextField()
+    overview = models.TextField()
+    release_date = models.DateField()
     release_country = models.CharField(max_length=255)
+    run_time_minutes = models.IntegerField()
     poster_url = models.TextField()
+
+    # Поля з MovieMetadata
+    genre = models.TextField(blank=True, null=True)
+    original_language = models.TextField(blank=True, null=True)
     media_type = models.TextField(default="none")
+    home_page = models.TextField(blank=True, null=True)
+    production_company = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        db_table = 'movie_info'
+
+
+class MovieCast(models.Model):
+
+    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name='casts')  # Зв'язок з MovieInfo
+    cast = models.TextField()  # Склад акторів у фільмі
+
+    class Meta:
+        db_table = 'movie_cast'
+
+class MovieFinancials(models.Model):
+    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name='financials')
+    budget_usd = models.CharField(max_length=255)  # Бюджет фільму як текст
+    revenue_usd = models.CharField(max_length=255)  # Доходи фільму як текст
+    vote_average = models.FloatField()  # Середня оцінка фільму
+    vote_count = models.CharField(max_length=255)  # Кількість голосів
+    tagline = models.CharField(max_length=255, blank=True, null=True)  # Теглайн фільму
+
+    class Meta:
+        db_table = 'movie_financials'
+
+class movie_trailer (models.Model):
+    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name='trailers')
+    film_id = models.IntegerField()  # Прибираємо unique=True, щоб дозволити кілька трейлерів
+    trailer_url = models.URLField()
+
     def __str__(self):
-        return self.movie_name
+        return f"Trailer for movie {self.film_id} ({self.movie.movie_name})"
+
+class Trailer (models.Model):
+    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name='mvtrailers')
+    film_id = models.IntegerField()  # Прибираємо unique=True, щоб дозволити кілька трейлерів
+    trailer_url = models.URLField()
+
+    def __str__(self):
+        return f"Trailer for movie {self.film_id} ({self.movie.movie_name})"
+
+
+class Watchlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlist")
+    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name="watchlist_movies")
+
+    class Meta:
+        unique_together = ('user', 'movie')  # уникальність по користувачу та фільму
+
+    def __str__(self):
+        return f"{self.user.username} - {self.movie.movie_name}"

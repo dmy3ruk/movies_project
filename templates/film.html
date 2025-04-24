@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href={% static 'css/film.css' %}?{% now "U" %}>
+
+    <main class="movie-container">
+        <div class="poster-info">
+            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }}" class="poster">
+            <div class="movie-details">
+                <h1>{{ movie.movie_name }}</h1>
+
+                <div class="movie-meta">
+                    <span class="age-rating">{{ movie.media_type }}</span>
+                    <span class="release-date">{{ movie.release_date|date:"d/m/Y" }}</span>
+                    {% if movie.run_time_minutes != null %}
+                        <span class="runtime">{{ movie.run_time_minutes }} хв</span>
+                    {% endif %}
+                </div>
+
+                {% if movie.tagline != null %}
+                    <h4>{{ movie.tagline }}</h4>
+                {% endif %}
+                <p>
+                <h3>Plot:</h3>
+                <span>
+                {{ movie.storyline }}
+                </span></p>
+                {% if movie.genre != null %}
+                    <p><strong>Жанри:</strong> {{ movie.genre }}</p>
+                {% endif %}
+                <p><strong>Рік:</strong> {{ movie.release_date.year }}</p>
+                {% if movie.original_language != null %}
+                    <p><strong>Language of Original:</strong> {{ movie.original_language }}</p>
+                {% endif %}
+                {% if movie.tagline != null %}
+                    <p><strong>Language of Translated:</strong> {{ movie.translated_language }}</p>
+                {% endif %}
+                <p><strong>Cast:</strong> {{ cast }}</p>
+                <div class="rating">
+                    {% for i in "12345" %}
+                        <i class="fas fa-star"></i>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% if trailer %}
+            <h2>Трейлер:</h2>
+            <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/{{ trailer }}"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+        {% else %}
+            <p>Трейлер не знайдено.</p>
+        {% endif %}
+
+
+        <section class="reviews">
+            <h2>Відгуки ({{ reviews.count }})</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="text" placeholder="Написати відгук">
+                <button type="submit">Надіслати</button>
+            </form>
+
+            {% for review in reviews %}
+                <div class="review">
+                    <div class="avatar"></div>
+                    <div>
+                        <p><strong>{{ review.user.username }}</strong> {{ review.created_at }}</p>
+                        <p>{{ review.text }}</p>
+                        <div class="likes">
+                            ❤️ {{ review.likes_count }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,242 @@
+body {
+    background: #121212;
+    background-image: url(/static/images/decorate.svg);
+    height: 1394px;
+}
+a{
+    text-decoration: none;
+}
+
+
+.sign_up{
+font-family: Inter;
+font-weight: 700;
+font-size: 32px;
+color: #ffffff;
+padding-left: 600px;
+}
+.wel{
+font-family: Inter;
+font-weight: 700;
+font-size: 24px;
+color: #ffffff;
+top: 190px;
+padding-left: 520px;
+}
+.instr ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0;
+}
+.instr{
+    padding-top: -20px;
+    padding-left: 368px;
+    font-family: Inter;
+font-weight: 400;
+font-size: 18px;
+color: #ffffff;
+text-align: justify;
+}
+.admin-link{
+    color: #007BFF;
+    font-weight: bold;
+
+}
+.well{
+    padding-top: -10px;
+    padding-left: 380px;
+    font-family: Inter;
+font-weight: 700;
+font-size: 24px;
+color: #ffffff;
+}
+.form{
+width: 800px;
+height: 530px;
+margin-top: 50px;
+margin-left: 260px;
+border: 5px solid #007BFF;
+border-radius: 25px;
+background: #121212;
+}
+.input{
+width: 500px;
+height: 35px;
+margin: 50px auto -25px;
+padding: 10px 15px;
+border-radius: 35px;
+border-width: 2px;
+font-family: Inter;
+font-weight: 400;
+font-size: 20px;
+color: #ffffff;
+background-color: #121212;
+border: 2px solid #007BFF80;
+display: block;
+}
+
+input::placeholder{
+font-family: Inter;
+font-weight: 400;
+font-size: 20px;
+top: 552px;
+padding: 10px 15px;
+color: #ffffff80;
+}
+.sign-up {
+    width: 296px;
+    height: 46px;
+    margin: 60px auto 0;
+    border-radius: 35px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #ffffff;
+    background: #D72638;
+    border: none;
+    display: block;
+}
+
+.sign-up:hover{
+border: 2px solid #721515
+}
+.sign-in{
+margin-top: 15px;
+margin-left: 326px;
+font-family: Inter;
+font-weight: 400;
+font-size: 20px;
+color: #ffffff;
+}
+.sign_in{
+font-family: Inter;
+font-weight: 400;
+font-size: 20px;
+color: #007BFF;
+margin-top: 15px;
+margin-left: 5px;
+text-decoration: none;
+}
+#main-content.blur-background {
+    filter: blur(5px);
+    pointer-events: none; /* Забороняє взаємодію з заблюреним контентом */
+}
+
+/* Додаємо новий стиль для затемнення фону */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемнення */
+    backdrop-filter: blur(5px); /* Додає блюр */
+    z-index: 999; /* Фон затемнення */
+    display: none; /* Початково прихований */
+}
+
+.login-form-container {
+    display: none; /* Початково прихована форма */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 353px;
+    height: 443px;
+    border-radius: 25px;
+    background-color: #007BFF;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.log{
+    font-family: Inter;
+font-weight: 700;
+font-size: 20px;
+color: #ffffff;
+padding-top: 25px;
+padding-left: 150px;
+}
+.input_log{
+    width: 200px;
+    height: 15px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 35px;
+    border-width: 2px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #121212;
+    border: none;
+    display: block;
+    }
+    input_log::placeholder{
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    top: 552px;
+    padding: 10px 15px;
+    color: #ffffff80;
+    }
+.signin{
+    width: 176px;
+height: 31px;
+margin-top: 10px;
+margin-left: 80px;
+border-radius: 25px;
+background-color: #D72638;
+font-family: Inter;
+font-weight: 400;
+font-size: 15px;
+color: #ffffff;
+border: none;
+}
+.signin:hover{
+    border: 2px solid #721515
+}
+.forgot{
+font-family: Inter;
+font-weight: 400;
+font-size: 15px;
+color: #ffffff;
+margin-left: 5px;
+margin-top: 30px;
+}
+.login{
+font-family: Inter;
+font-weight: 400;
+font-size: 15px;
+color: #ffffff;
+margin-left: 5px;
+margin-top: 10px;
+}
+
+.form ul {
+  color: red; /* Встановлюємо червоний колір для всього списку */
+    font-size: 14px;
+    font-family: Inter; /* Задаємо шрифт */
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+li {
+    margin-bottom: 5px; /* Відступ між елементами списку */
+}
