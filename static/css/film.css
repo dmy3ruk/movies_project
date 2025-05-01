@@ -29,6 +29,12 @@ body {
     align-items: flex-start;
 }
 
+.poster-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .poster {
     width: 250px;
     border-radius: 10px;
@@ -48,9 +54,6 @@ body {
     border-radius: 5px;
 }
 
-.rating i {
-    color: gold;
-}
 
 /* Відгуки */
 .reviews {
@@ -58,7 +61,7 @@ body {
     background-color: #141414;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
 }
 
 .reviews h2 {
@@ -83,6 +86,7 @@ body {
     outline: none;
     transition: 0.3s;
 }
+
 .reviews input:focus {
     background-color: #262626;
 }
@@ -97,6 +101,7 @@ body {
     font-weight: 600;
     transition: background-color 0.3s ease;
 }
+
 .reviews button:hover {
     background-color: #0056b3;
 }
@@ -112,17 +117,46 @@ body {
 }
 
 .review .avatar {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #444, #888);
-    border-radius: 50%;
-    flex-shrink: 0;
+    width: 45px; /* Фіксований розмір аватарки */
+    height: 45px; /* Фіксований розмір аватарки */
+    background: linear-gradient(135deg, #444, #888); /* Колір фону */
+    border-radius: 50%; /* Робить аватарку круглою */
+    overflow: hidden; /* Перекриває зайву частину зображення */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
+}
+
 
 .review strong {
     color: #f5f5f5;
 }
 
+.review p {
+    color: #ddd;
+}
+
+.likes {
+    color: #ff6347;
+    font-weight: bold;
+}
+
+/* Footer Styles */
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -143,6 +177,8 @@ footer {
     background-color: #012169;
     padding-bottom: 15px;
 }
+
+/* Movie meta info */
 .movie-meta {
     display: flex;
     gap: 10px;
@@ -155,4 +191,35 @@ footer {
     background-color: #222;
     padding: 5px 8px;
     border-radius: 5px;
+}
+
+/* Basic styles for the rating container */
+.rating {
+    gap: 5px;
+    margin-top: 10px;
+    display: flex;
+    font-size: 24px;
+    color: #ffd700; /* Gold color for the stars */
+}
+
+/* Full star style */
+.rating .fas.fa-star.filled {
+    color: #ffd700; /* Gold color for full stars */
+}
+
+.rating .fas.fa-star-half-alt {
+    color: #ffd700; /* Жовтий */
+    -webkit-text-stroke: 1px #ffd700; /* Сіра обводка */
+}
+
+.rating .fas.fa-star {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffd700; /* Тонка сіра обводка */
+}
+
+
+/* Optional: Hover effect for stars */
+.rating i:hover {
+    color: #ffcc00; /* Slightly brighter gold on hover */
+    cursor: pointer;
 }

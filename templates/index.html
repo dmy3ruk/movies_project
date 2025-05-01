@@ -21,137 +21,143 @@
             </a>
         </span>
         <div class="dropdown" id="filmsDropdown">
-                <a href="/films/action" class="genre-link">Action</a>
-                <a href="/films/biography" class="genre-link">Biography</a>
-                <a href="/films/detective" class="genre-link">Detective</a>
-                <a href="/films/documentary" class="genre-link">Documentary</a>
-                <a href="/films/drama" class="genre-link">Dramas</a>
-                <a href="/films/horror" class="genre-link">Horrors</a>
-                <a href="/films/history" class="genre-link">Historical</a>
-                <a href="/films/comedy" class="genre-link">Comedies</a>
-                <a href="/films/crime" class="genre-link">Crime</a>
-                <a href="/films/melodrama" class="genre-link">Melodrama</a>
-                <a href="/films/mystic" class="genre-link">Mystic</a>
-                <a href="/films/cartoons" class="genre-link">Cartoons</a>
-                <a href="/films/musical" class="genre-link">Musicals</a>
-                <a href="/films/adventure" class="genre-link">Adventures</a>
-                <a href="/films/romance" class="genre-link">Romances</a>
-                <a href="/films/family" class="genre-link">Family</a>
-                <a href="/films/sport" class="genre-link">Sport</a>
-                <a href="/films/thriller" class="genre-link">Thrillers</a>
-                <a href="/films/fantastic" class="genre-link">Fantastic</a>
-                <a href="/films/fantasy" class="genre-link">Fantasy</a>
-            </div>
+            <a href="/films/action" class="genre-link">Action</a>
+            <a href="/films/biography" class="genre-link">Biography</a>
+            {#                <a href="/films/detective" class="genre-link">Detective</a>#}
+            <a href="/films/documentary" class="genre-link">Documentary</a>
+            <a href="/films/drama" class="genre-link">Dramas</a>
+            <a href="/films/horror" class="genre-link">Horrors</a>
+            <a href="/films/history" class="genre-link">Historical</a>
+            <a href="/films/comedy" class="genre-link">Comedies</a>
+            <a href="/films/crime" class="genre-link">Crime</a>
+            {#                <a href="/films/soap" class="genre-link">Melodrama</a>#}
+            <a href="/films/mystic" class="genre-link">Mystic</a>
+            <a href="/films/cartoons" class="genre-link">Cartoons</a>
+            <a href="/films/musical" class="genre-link">Musicals</a>
+            <a href="/films/adventure" class="genre-link">Adventures</a>
+            <a href="/films/romance" class="genre-link">Romances</a>
+            <a href="/films/family" class="genre-link">Family</a>
+            <a href="/films/sport" class="genre-link">Sport</a>
+            <a href="/films/thriller" class="genre-link">Thrillers</a>
+            <a href="/films/fantastic" class="genre-link">Fantastic</a>
+            <a href="/films/fiction" class="genre-link">Science Fiction</a>
         </div>
+    </div>
 
-        <div class="dropdown-menu">
+    <div class="dropdown-menu">
                         <span><a href="#" id="serialsBtn" class="nav">Series
                             <img src={% static "icon/Arrow.svg" %} class="arrow"/></a></span>
-            <div class="dropdown_content" id="serialsDropdown">
-                <a href="/serials/detective">Detective</a>
-                <a href="/serials/kdrama">K-drama</a>
-                <a href="/serials/drama">Drama</a>
-                <a href="/serials/horror">Horror</a>
-                <a href="/serials/history">Historical</a>
-                <a href="/serials/comedy">Comedies</a>
-                <a href="/serials/melodram">Melodramas</a>
-                <a href="/serials/cartoon">Cartoons</a>
-                <a href="/serials/adventure">Adventures</a>
-                <a href="/serials/real">Real life events</a>
-                <a href="/serials/thriller">Thrillers</a>
-                <a href="/serials/fantasy">Fantasy</a>
-            </div>
+        <div class="dropdown_content" id="serialsDropdown">
+            <a href="/serials/crime">Crime</a>
+            <a href="/serials/kdrama">K-drama</a>
+            <a href="/serials/drama">Drama</a>
+            <a href="/serials/horror">Horror</a>
+            <a href="/serials/history">Historical</a>
+            <a href="/serials/comedy">Comedies</a>
+            <a href="/serials/soap">Melodramas</a>
+            <a href="/serials/animation">Cartoons</a>
+            <a href="/serials/action">Adventures</a>
+            <a href="/serials/real">Real life events</a>
+            <a href="/serials/thriller">Thrillers</a>
+            <a href="/serials/fantasy">Fantasy</a>
+        </div>
     </div>
 
     <a href="#" class="nav">New</a>
     <a href="#" class="nav">Top-10</a>
-{% if user.is_authenticated %}
-    <a href="/watchlist" class="nav">Selected</a>
-{% endif %}
+    {% if user.is_authenticated %}
+        <a href="/watchlist" class="nav">Selected</a>
+    {% endif %}
     {% if not user.is_authenticated %}
-    <a href="{% url 'signup' %}" style="text-decoration: none;">
-        <button class="button">
-            <span class="button_text">Sign in</span>
-        </button>
-    </a>
+        <a href="{% url 'signup' %}" style="text-decoration: none;">
+            <button class="button">
+                <span class="button_text">Sign in</span>
+            </button>
+        </a>
     {% endif %}
 </header>
 
 {% block content %}
-<!-- POSTER GROUP -->
-<div>
-    <img src="{% static 'icon/left arrow.svg' %}" class="arrow"/>
-    <img src="{% static 'images/main_poster.png' %}" alt="poster" class="main_poster">
-    <img src="{% static 'icon/right arrow.svg' %}" class="arrow"/>
+    <!-- POSTER GROUP -->
+    <div>
+        <img src="{% static 'icon/left arrow.svg' %}" class="arrow"/>
+        <img src="{% static 'images/main_poster.png' %}" alt="poster" class="main_poster">
+        <img src="{% static 'icon/right arrow.svg' %}" class="arrow"/>
 
-    <div class="group-ellipse">
-        <div class="ellipse"></div>
-        <div class="ellipse-2"></div>
-        <div class="ellipse-3"></div>
-    </div>
-
-    <!-- NEW GROUP -->
-   <div class="poster-container">
-    {% for movie in new_posters %}
-        <div class="poster-wrapper">
-            <a href="/film/{{ movie.id }}" class="poster-link">
-                {% if movie.poster_url %}
-                    <img class="rectangle" src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster">
-                    <span class="new_name"><h3>{{ movie.movie_name }}</h3></span>
-                            <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
-
-                {% else %}
-                    <p>Poster is not found</p>
-                {% endif %}
-            </a>
+        <div class="group-ellipse">
+            <div class="ellipse"></div>
+            <div class="ellipse-2"></div>
+            <div class="ellipse-3"></div>
         </div>
-    {% endfor %}
-</div>
 
-</div>
+        <!-- NEW GROUP -->
+        <div class="poster-container">
+            {% for movie in new_posters %}
+                <div class="poster-wrapper">
+                    {% if movie.poster_url %}
+                        <a href="/film/{{ movie.id }}" class="poster-link">
+                            <img class="rectangle" src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster">
+                            <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+                        </a>
+                        <span class="new_name"><h3 class="new_name">{{ movie.movie_name }}</h3></span>
 
-<!-- TOP GROUP -->
-<div class="top-group">
-    <h1 class="top">Top 10</h1>
-    <div class="top10-container">
-        {% for movie in top10_posters %}
-            <div class="poster-box">
-                {% if movie.poster_url %}
-                    <a href="/film/{{ movie.id }}" class="poster-link">
-                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
-                        <span class="top_name"><h3>{{ movie.movie_name }}</h3></span>
-                        <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
+                    {% else %}
+                        <p>Poster is not found</p>
+                    {% endif %}
 
-                    </a>
-                {% else %}
-                    <p>Poster is not found</p>
-                {% endif %}
+                </div>
+            {% endfor %}
+        </div>
 
-            </div>
-        {% endfor %}
     </div>
-</div>
 
-<!-- POP GROUP -->
-<div class="pop-group">
-    <h1 class="pop">Popular</h1>
-    <div class="popular-container">
-        {% for movie in popular_posters %}
-            <div class="poster-box">
-                {% if movie.poster_url %}
-                    <a href="/film/{{ movie.id }}" class="poster-link" class="poster-link">
-                        <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
+    <!-- TOP GROUP -->
+    <div class="top-group">
+        <h1 class="top">Top 10</h1>
+        <div class="top10-container">
+            {% for movie in top10_posters %}
+                <div class="poster-box">
+                    {% if movie.poster_url %}
+                        <a href="/film/{{ movie.id }}" class="poster-link">
+                            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
+                            <button class="heart-btn" data-id="{{ movie.id }}"
+                                    style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍
+                            </button>
+                        </a>
+                        <span class="top_name"><h3 class="top_name">{{ movie.movie_name }}</h3></span>
+
+                    {% else %}
+                        <p>Poster is not found</p>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- POP GROUP -->
+    <div class="pop-group">
+        <h1 class="pop">Popular</h1>
+        <div class="popular-container">
+            {% for movie in popular_posters %}
+                <div class="poster-box">
+                    {% if movie.poster_url %}
+                        <a href="/film/{{ movie.id }}" class="poster-link">
+                            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }} Poster" style="width: 250px;">
+                            <button class="heart-btn" data-id="{{ movie.id }}"
+                                    style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍
+                            </button>
+                        </a>
                         <span class="pop_name"><h3>{{ movie.movie_name }}</h3></span>
-                        <button class="heart-btn" data-id="{{ movie.id }}" style="background: none; border: none; font-size: 24px; cursor: pointer;">🤍</button>
-                    </a>
-                {% else %}
-                    <p>Poster is not found</p>
-                {% endif %}
 
-            </div>
-        {% endfor %}
+                    {% else %}
+                        <p>Poster is not found</p>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}
 
 <!-- FOOTER -->
@@ -180,67 +186,67 @@
 <script src="{% static 'script.js' %}"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const logo = document.getElementById("logo");
-    if (logo) {
-        logo.onclick = function () {
-            window.location.href = "/";
-        };
-    }
-    fetch('/api/films')
-        .then(response => response.json())
-        .then(films => {
-            document.querySelectorAll('.heart-btn').forEach(btn => {
-                const movieId = parseInt(btn.getAttribute('data-id'));
+    document.addEventListener("DOMContentLoaded", function () {
+        const logo = document.getElementById("logo");
+        if (logo) {
+            logo.onclick = function () {
+                window.location.href = "/";
+            };
+        }
+        fetch('/api/films')
+            .then(response => response.json())
+            .then(films => {
+                document.querySelectorAll('.heart-btn').forEach(btn => {
+                    const movieId = parseInt(btn.getAttribute('data-id'));
 
-                const film = films.find(f => f.id === movieId);
-                if (film && film.is_in_watchlist) {
-                    btn.textContent = "💖";
-                    btn.classList.add('filled');
-                } else {
-                    btn.textContent = "🤍";
-                }
+                    const film = films.find(f => f.id === movieId);
+                    if (film && film.is_in_watchlist) {
+                        btn.textContent = "💖";
+                        btn.classList.add('filled');
+                    } else {
+                        btn.textContent = "🤍";
+                    }
 
-                btn.addEventListener('click', function () {
-                    const isInWatchlist = btn.classList.contains('filled');
-                    const url = `/api/${isInWatchlist ? 'remove_from' : 'add_to'}_watchlist/${movieId}/`;
-                    const method = isInWatchlist ? 'DELETE' : 'POST';
+                    btn.addEventListener('click', function () {
+                        const isInWatchlist = btn.classList.contains('filled');
+                        const url = `/api/${isInWatchlist ? 'remove_from' : 'add_to'}_watchlist/${movieId}/`;
+                        const method = isInWatchlist ? 'DELETE' : 'POST';
 
-                    fetch(url, {
-                        method: method,
-                        headers: {
-                            'X-CSRFToken': getCookie('csrftoken'),  // Важливо: додай цей хелпер
-                        }
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.message) {
-                            btn.textContent = isInWatchlist ? "🤍" : "💖";
-                            btn.classList.toggle('filled');
-                        } else {
-                            alert(data.error || data.message);
-                        }
-                    })
-                    .catch(err => console.error(err));
+                        fetch(url, {
+                            method: method,
+                            headers: {
+                                'X-CSRFToken': getCookie('csrftoken'),  // Важливо: додай цей хелпер
+                            }
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.message) {
+                                    btn.textContent = isInWatchlist ? "🤍" : "💖";
+                                    btn.classList.toggle('filled');
+                                } else {
+                                    alert(data.error || data.message);
+                                }
+                            })
+                            .catch(err => console.error(err));
+                    });
                 });
             });
-        });
-});
+    });
 
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            cookie = cookie.trim();
-            if (cookie.startsWith(name + '=')) {
-                cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
-                break;
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+                    break;
+                }
             }
         }
+        return cookieValue;
     }
-    return cookieValue;
-}
 </script>
 
 

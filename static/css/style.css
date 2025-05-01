@@ -169,6 +169,10 @@ text-decoration: none;
     border-radius: 2px;
     transform: scale(1.05); /* Slightly enlarge the poster */
 }
+.poster-wrapper {
+    position: relative;
+    text-align: center; /* Центрування тексту */
+}
 
 
 .poster-container{
@@ -222,12 +226,11 @@ text-decoration: none;
 .left_arrow{
   position: absolute;
   width: 23px;
-  height: 43px;
   top: 350px;
   left: 40px;
 }
 .main_poster{
-  width: 1240px;
+  width: 1200px;
   height: 500px;
   display: flex;
   padding-top: 40px;
@@ -366,6 +369,7 @@ text-decoration: none;
     margin-top: 5%;
 }
 .top10-container, .poster-container, .popular-container {
+    overflow-y: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center; /* або space-between / space-around */
@@ -443,6 +447,13 @@ text-decoration: none;
   position: absolute;
   color: #ffffff;
 }
+.new_name h3, .top_name h3, .pop_name h3 {
+    color: #000; /* Чорний або інший колір для тексту */
+    font-size: 1.2rem; /* Встановіть розмір шрифту */
+    font-weight: bold; /* Робимо текст жирним */
+    text-align: center; /* Для центрованого тексту */
+}
+
 .top_name1{
   top: 1720px;
   left: 445px;

@@ -1,48 +1,62 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block content %}
-    <link rel="stylesheet" href={% static 'css/film.css' %}?{% now "U" %}>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'css/film.css' %}?{% now "U" %}">
 
     <main class="movie-container">
         <div class="poster-info">
-            <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }}" class="poster">
+       <div class="poster-rating">
+    <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }}" class="poster">
+    <div class="rating">
+        {% for star in stars %}
+            {% if star == 'full' %}
+                <i class="fas fa-star filled"></i> <!-- Full star -->
+            {% elif star == 'half' %}
+                <i class="fas fa-star-half-alt"></i> <!-- Half star (no filled class here) -->
+            {% else %}
+                <i class="fas fa-star"></i> <!-- Empty star -->
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
             <div class="movie-details">
-                <h1>{{ movie.movie_name }}</h1>
+                    <h1>{{ movie.movie_name }}</h1>
+                    <!-- Rating Stars -->
 
                 <div class="movie-meta">
                     <span class="age-rating">{{ movie.media_type }}</span>
                     <span class="release-date">{{ movie.release_date|date:"d/m/Y" }}</span>
-                    {% if movie.run_time_minutes != null %}
+                    {% if movie.run_time_minutes %}
                         <span class="runtime">{{ movie.run_time_minutes }} хв</span>
                     {% endif %}
                 </div>
 
-                {% if movie.tagline != null %}
+                {% if movie.tagline %}
                     <h4>{{ movie.tagline }}</h4>
                 {% endif %}
                 <p>
-                <h3>Plot:</h3>
-                <span>
-                {{ movie.storyline }}
-                </span></p>
-                {% if movie.genre != null %}
+                <h3>Description:</h3>
+                <span>{{ movie.storyline }}</span></p>
+                {% if movie.genre %}
                     <p><strong>Жанри:</strong> {{ movie.genre }}</p>
                 {% endif %}
                 <p><strong>Рік:</strong> {{ movie.release_date.year }}</p>
-                {% if movie.original_language != null %}
+                {% if movie.original_language %}
                     <p><strong>Language of Original:</strong> {{ movie.original_language }}</p>
                 {% endif %}
-                {% if movie.tagline != null %}
+                {% if movie.translated_language %}
                     <p><strong>Language of Translated:</strong> {{ movie.translated_language }}</p>
                 {% endif %}
                 <p><strong>Cast:</strong> {{ cast }}</p>
-                <div class="rating">
-                    {% for i in "12345" %}
-                        <i class="fas fa-star"></i>
-                    {% endfor %}
-                </div>
             </div>
         </div>
+
 
         {% if trailer %}
             <h2>Трейлер:</h2>
@@ -51,31 +65,45 @@
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
-        {% else %}
-            <p>Трейлер не знайдено.</p>
         {% endif %}
 
-
-        <section class="reviews">
+        <!-- Форма для додавання відгуку -->
+        {% if user.is_authenticated %}
+            <section class="reviews">
             <h2>Відгуки ({{ reviews.count }})</h2>
             <form method="POST">
                 {% csrf_token %}
-                <input type="text" name="text" placeholder="Написати відгук">
+                {{ review_form.as_p }}
                 <button type="submit">Надіслати</button>
             </form>
+        {% else %}
+            <p>Ви повинні бути <a href="{% url 'login' %}">logged in</a>, щоб залишити відгук.</p>
+        {% endif %}
 
-            {% for review in reviews %}
-                <div class="review">
-                    <div class="avatar"></div>
-                    <div>
-                        <p><strong>{{ review.user.username }}</strong> {{ review.created_at }}</p>
-                        <p>{{ review.text }}</p>
-                        <div class="likes">
-                            ❤️ {{ review.likes_count }}
-                        </div>
-                    </div>
+        <!-- Виведення відгуків -->
+        {% for review in reviews %}
+            <div class="review">
+                <div class="avatar">
+                    <img src="{% static "/images/profile_pic.png" %}" alt="{{ review.user.username }}">
                 </div>
-            {% endfor %}
+                <div>
+                    <p><strong>{{ review.user.username }}</strong> {{ review.created_at|date:"d/m/Y H:i" }}</p>
+                    <p>{{ review.text }}</p>
+                    <div class="likes">
+                        ❤️ {{ review.likes_count }}
+                    </div>
+                    {% if user == review.user %}
+                        <!-- Кнопка для видалення відгуку -->
+                        <form action="{% url 'delete_review' review.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn">Видалити</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p>Немає відгуків для цього фільму.</p>
+        {% endfor %}
         </section>
     </main>
 {% endblock %}

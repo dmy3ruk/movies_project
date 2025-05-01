@@ -49,15 +49,6 @@ class movie_trailer (models.Model):
     def __str__(self):
         return f"Trailer for movie {self.film_id} ({self.movie.movie_name})"
 
-class Trailer (models.Model):
-    movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name='mvtrailers')
-    film_id = models.IntegerField()  # Прибираємо unique=True, щоб дозволити кілька трейлерів
-    trailer_url = models.URLField()
-
-    def __str__(self):
-        return f"Trailer for movie {self.film_id} ({self.movie.movie_name})"
-
-
 class Watchlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlist")
     movie = models.ForeignKey(MovieInfo, on_delete=models.CASCADE, related_name="watchlist_movies")
@@ -67,3 +58,13 @@ class Watchlist(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.movie.movie_name}"
+
+class Review(models.Model):
+    movie = models.ForeignKey(MovieInfo, related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])  # оцінка від 1 до 5
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Review by {self.user.username} on {self.movie.title}'

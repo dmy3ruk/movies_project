@@ -15,16 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.db import router
+from django.conf.urls.static import static  # ✅ правильно
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from . import views
+from . import views, settings
 
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import SignUpView, SignInView, watchlist, add_to_watchlist
-
+from .views import SignUpView, SignInView, watchlist, add_to_watchlist, Film, DeleteReviewView, FilmListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,13 +32,14 @@ urlpatterns = [
     path('films/<str:genre>/', views.films_poster, name='genre'),
     path('serials/<str:genre>/', views.serials_poster, name='genre'),
 
-    path('film/<int:filmId>', views.film_page, name='film'),
+    path('film/<int:filmId>', Film.as_view(), name='movie_detail'),
+    path('delete-review/<int:review_id>/', DeleteReviewView.as_view(), name='delete_review'),
     path('signup/', SignUpView.as_view(), name='signup'),
-    path('signin/', SignInView.as_view(), name='signin'),
-    path('api/films', views.films_api),
+    path('login/', SignInView.as_view(), name='signin'),
+    path('api/films', FilmListView.as_view()),
     path('api/watchlist/', views.watchlist_api),
     path('api/add_to_watchlist/<int:movie_id>/', views.add_to_watchlist),
     path('api/remove_from_watchlist/<int:movie_id>/', views.remove_from_watchlist),
     path('watchlist', watchlist, name='watchlist'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

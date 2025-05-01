@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 
+from movies_project.models import Review
+
+
 class RegistrationForm(UserCreationForm):
     username = forms.CharField(
         label=_(""),
@@ -44,3 +47,12 @@ class LoginForm(AuthenticationForm):
     )
     class Meta:
         fields = ['username', 'password']
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['text', 'rating']
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'review', 'placeholder': 'Write your review...'}),
+            'rating': forms.Select(attrs={'class': 'review'})
+        }
